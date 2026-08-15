@@ -4,6 +4,16 @@ DeepSeek Harness（DSH）Web 皮肤：在官方**浅色 / 深色 / 跟随系统*
 
 对照官方基线：DeepSeek Harness `47f943859bef60e4160492346772ded9b24f765a`。
 
+## 预览
+
+| 冰原 | 深水 |
+| --- | --- |
+| ![冰原壁纸下的新会话](docs/preview/ice-hero.jpg) | ![深水壁纸下的对话](docs/preview/deepwater-chat.jpg) |
+
+| 设置 | 自定义壁纸 |
+| --- | --- |
+| ![设置里选择壁纸](docs/preview/settings.jpg) | ![导入的自定义壁纸](docs/preview/custom-wallpaper.jpg) |
+
 ## 功能
 
 - **壁纸预设**：冰原（浅色）、深水（深色），也可导入自己的图
