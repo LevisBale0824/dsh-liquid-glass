@@ -1,6 +1,6 @@
 {
   "name": "dsh-liquid-glass",
-  "version": "0.12.81",
+  "version": "0.12.82",
   "description": "Wallpaper plus an optional Liquid Glass overlay for DeepSeek Harness. Sits on official light / dark / system. 官方浅色/深色/跟随系统上的壁纸与液态玻璃叠加。",
   "keywords": ["dsh", "dsh-plugin", "deepseek-harness", "theme", "skin", "liquid-glass", "glassmorphism"],
   "license": "MIT",
