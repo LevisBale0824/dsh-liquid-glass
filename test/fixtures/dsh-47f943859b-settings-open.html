@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<body>
+  <div>
+    <div data-slot="sidebar" style="display:contents">
+      <div data-sidebar-root>
+        <div>
+          <button type="button">logo</button>
+          <button type="button">toggle</button>
+        </div>
+        <button type="button" data-new-session>New Session</button>
+        <div data-slot="sidebar.workspaces" style="display:contents">
+          <div data-workspace-browser>
+            <div data-workspace-header>
+              <button type="button">search</button>
+            </div>
+            <div role="tree">
+              <div role="treeitem" aria-selected="true">session</div>
+            </div>
+          </div>
+        </div>
+        <div data-slot="sidebar.settings" style="display:contents">
+          <button type="button" aria-haspopup="dialog" aria-expanded="true">Settings</button>
+          <div role="presentation" data-settings-overlay>
+            <div data-settings-mask aria-hidden="true"></div>
+            <div role="dialog" aria-modal="true" aria-labelledby="settings-title" data-settings-panel>
+              <nav>
+                <div id="settings-title">Settings</div>
+                <button type="button" aria-current="true">General</button>
+                <button type="button">Models</button>
+                <button type="button">Plugins</button>
+                <button type="button">Agent presets</button>
+              </nav>
+              <div data-settings-content>
+                <div>
+                  <button type="button">Open configuration file</button>
+                  <button type="button" data-settings-close>Close</button>
+                </div>
+                <div data-settings-options>
+                  <div data-liquid-glass-settings>
+                    <div data-liquid-glass-section>
+                      <div>背景图片</div>
+                      <div data-liquid-glass-copy>叠在官方浅色 / 深色 / 跟随系统下面。</div>
+                      <div data-liquid-glass-background-grid>
+                        <button type="button" data-liquid-glass-background-choice="ice">冰原</button>
+                      </div>
+                      <label data-liquid-glass-slider-row>
+                        <span>可见度</span>
+                        <input type="range" min="35" max="100" value="88">
+                        <span>88%</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

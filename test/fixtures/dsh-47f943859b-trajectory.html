@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<body>
+  <div data-slot="conversation" style="display:contents">
+    <div data-phase="active">
+      <div data-slot="conversation.session.header" style="display:contents">
+        <header>
+          <div role="tablist">
+            <button type="button" role="tab">Chat</button>
+            <button type="button" role="tab" aria-selected="true">Trajectory</button>
+          </div>
+          <div data-slot="conversation.session.header.utilities" style="display:contents">
+            <button type="button">Session log</button>
+          </div>
+        </header>
+      </div>
+      <div data-conversation-scroll>
+        <div data-slot="conversation.session" style="display:contents">
+          <div data-view-area>
+            <div data-conversation-composer-overlay>
+              <div>trajectory ledger</div>
+            </div>
+          </div>
+        </div>
+        <div data-composer-seat>
+          <div data-composer-card>
+            <textarea data-phase="inert"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

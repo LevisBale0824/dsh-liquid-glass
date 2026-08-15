@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+<body>
+  <div data-sidebar-collapsed>
+    <div>
+      <div data-slot="sidebar" style="display:contents">
+        <div data-sidebar-root>
+          <div>
+            <button type="button">logo</button>
+            <button type="button" aria-label="collapse">toggle</button>
+          </div>
+          <button type="button" data-new-session>New Session</button>
+          <div data-slot="sidebar.workspaces" style="display:contents">
+            <div data-workspace-browser>
+              <div data-workspace-header>
+                <button type="button" aria-expanded="false">search</button>
+                <button type="button">filter</button>
+                <button type="button">add workspace</button>
+              </div>
+              <div role="tree">
+                <div role="treeitem" aria-selected="true">selected session</div>
+                <div role="treeitem" aria-selected="false">other</div>
+              </div>
+            </div>
+          </div>
+          <div data-slot="sidebar.settings" style="display:contents">
+            <button type="button" aria-haspopup="dialog" aria-expanded="false">Settings</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div data-slot="sidebar" style="display:contents">
+      <div data-sidebar-root>
+        <div>
+          <button type="button">logo</button>
+          <button type="button" aria-label="collapse">toggle</button>
+        </div>
+        <button type="button" data-new-session>New Session</button>
+        <div data-slot="sidebar.workspaces" style="display:contents">
+          <div data-workspace-browser>
+            <div data-workspace-header>
+              <button type="button" aria-expanded="false">search</button>
+              <button type="button">filter</button>
+              <button type="button">add workspace</button>
+            </div>
+            <div role="tree">
+              <div role="treeitem" aria-selected="true">selected session</div>
+            </div>
+          </div>
+        </div>
+        <div data-slot="sidebar.settings" style="display:contents">
+          <button type="button" aria-haspopup="dialog" aria-expanded="false">Settings</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-slot="conversation" style="display:contents">
+    <div data-phase="active">
+      <div data-slot="conversation.session.header" style="display:contents">
+        <header>
+          <div data-title-row>
+            <div data-title-cluster>
+              <nav aria-label="session hierarchy">
+                <span>Session title</span>
+              </nav>
+              <div data-slot="conversation.session.header.actions" style="display:contents">
+                <span>Creator mode</span>
+              </div>
+            </div>
+            <div data-header-utilities>
+              <div data-slot="conversation.session.header.utilities" style="display:contents">
+                <button type="button">Session log</button>
+              </div>
+            </div>
+          </div>
+          <div role="tablist">
+            <button type="button" role="tab">Chat</button>
+            <button type="button" role="tab">Trajectory</button>
+          </div>
+        </header>
+      </div>
+      <div data-conversation-scroll>
+        <div data-slot="conversation.session" style="display:contents">
+          <div data-view-area>
+            <div data-slot="conversation.view" style="display:contents">
+              <article data-chat-flow>
+                <p>plain assistant prose — not a card</p>
+                <div data-tool="read">tool card</div>
+                <div data-variant="think">think card</div>
+                <div data-variant="others">info card</div>
+                <div data-time-hover-root data-turn-tail="1">
+                  <div>assistant message</div>
+                  <div data-action-row>
+                    <button type="button">copy</button>
+                    <button type="button">like</button>
+                    <button type="button">dislike</button>
+                    <button type="button">branch</button>
+                  </div>
+                </div>
+                <div data-time-hover-root>
+                  <div>user bubble</div>
+                  <div data-action-row>
+                    <button type="button">copy</button>
+                    <button type="button">branch</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div data-composer-seat>
+          <div>
+            <div data-composer-card>
+              <textarea data-phase="inert" placeholder="Message"></textarea>
+              <button type="button">send</button>
+            </div>
+            <div data-slot="conversation.composer.dock" style="display:contents">
+              <div data-stats>2 turns | 13 steps</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
