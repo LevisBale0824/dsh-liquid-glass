@@ -15,7 +15,7 @@ function loadStorage(localStorage) {
     Math,
   }
   vm.runInNewContext(
-    `${constants}\n${storage}\n${wallpaper}\nthis.api = {\n  saveBackgroundState: saveBackgroundState,\n  readBackgroundState: readBackgroundState,\n  readCustomLibrary: readCustomLibrary,\n  canPersistLibrary: canPersistLibrary,\n  MAX_CUSTOM_BACKGROUNDS: MAX_CUSTOM_BACKGROUNDS,\n  MAX_CUSTOM_LIBRARY_DATA_URL_LENGTH: MAX_CUSTOM_LIBRARY_DATA_URL_LENGTH,\n}`,
+    `${constants}\n${storage}\n${wallpaper}\nthis.api = {\n  saveBackgroundState: saveBackgroundState,\n  readBackgroundState: readBackgroundState,\n  readCustomLibrary: readCustomLibrary,\n  canPersistLibrary: canPersistLibrary,\n  readLensRefract: readLensRefract,\n  writeLensRefract: writeLensRefract,\n  MAX_CUSTOM_BACKGROUNDS: MAX_CUSTOM_BACKGROUNDS,\n  MAX_CUSTOM_LIBRARY_DATA_URL_LENGTH: MAX_CUSTOM_LIBRARY_DATA_URL_LENGTH,\n}`,
     sandbox,
   )
   return sandbox.api
@@ -109,4 +109,15 @@ test('a later commit that rereads the library keeps the earlier import', () => {
   latest.push({ id: 'custom-a', data: 'data:image/jpeg;base64,aaa' })
   assert.equal(api.saveBackgroundState('custom-a', 'data:image/jpeg;base64,aaa', 0.88, latest), true)
   assert.equal(JSON.stringify(api.readCustomLibrary().map(item => item.id).sort()), JSON.stringify(['custom-a', 'custom-b']))
+})
+
+test('edge refraction switch defaults on and persists on/off', () => {
+  const local = memoryStorage()
+  const api = loadStorage(local)
+  assert.equal(api.readLensRefract(), true)
+  assert.equal(api.writeLensRefract(false), true)
+  assert.equal(api.readLensRefract(), false)
+  assert.equal(api.writeLensRefract(true), true)
+  assert.equal(api.readLensRefract(), true)
+  assert.equal(local.getItem('dsh-liquid-glass.lens.refract'), 'on')
 })

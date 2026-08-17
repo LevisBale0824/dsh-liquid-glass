@@ -16,6 +16,7 @@
         libraryBudget: '导入图片总容量不足，请先移除一张图片',
         opacity: '壁纸透明度',
         blur: '玻璃模糊',
+        refract: '边缘折射',
         glass: '液态玻璃',
         glassOn: '已开启',
         glassOff: '已关闭',
@@ -24,6 +25,12 @@
         imported: '已导入并保存本地图片',
         persistFail: '已应用，但浏览器未能保存设置',
         processing: '正在处理图片…',
+        cropTitle: '裁剪图片',
+        cropConfirm: '裁剪并导入',
+        cropCancel: '取消',
+        cropFree: '自由',
+        cropOriginal: '原图比例',
+        cropScreen: '屏幕比例',
       }
       var en = {
         background: 'Wallpaper',
@@ -36,6 +43,7 @@
         libraryBudget: 'Not enough space for imported images; remove one first',
         opacity: 'Wallpaper opacity',
         blur: 'Glass blur',
+        refract: 'Edge refraction',
         glass: 'Liquid Glass',
         glassOn: 'On',
         glassOff: 'Off',
@@ -44,6 +52,12 @@
         imported: 'Imported and saved locally',
         persistFail: 'Applied, but the browser could not save it',
         processing: 'Processing image…',
+        cropTitle: 'Crop image',
+        cropConfirm: 'Crop & import',
+        cropCancel: 'Cancel',
+        cropFree: 'Free',
+        cropOriginal: 'Original ratio',
+        cropScreen: 'Screen ratio',
       }
       return (isZh() ? zh : en)[key]
     }

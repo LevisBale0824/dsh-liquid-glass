@@ -49,6 +49,16 @@
             )
           })
         },
+        function () {
+          var slots = ctx.get('slots')
+          if (slots === undefined || React === undefined) return undefined
+          return slots.inject('shell.overlay', function () {
+            return slots.register(
+              { name: 'shell.overlay', id: 'liquid-glass-crop-' + controller.id, order: 2 },
+              CropOverlay,
+            )
+          })
+        },
       ])
       ctx.effect(function () { return dispose })
     }

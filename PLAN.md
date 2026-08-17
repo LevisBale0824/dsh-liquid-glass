@@ -10,7 +10,7 @@
 - Metrics：节点快照所有权；替换时清旧 CSS 变量和 scroll 监听；稳定节点不 `disconnect` observer；hero 只要求 root，active 要求完整聊天节点。
 - Metal：稳定草稿 0Hz；streaming ≤ 10Hz；composer 外点击只做卡片身份检查。
 - 光学：默认三张贴图预生成；动态尺寸按行分片（约 4ms）且同 key single-flight；空结果不进成功缓存。
-- 图片导入：`encodeImageFile` 必须 settle；隐藏/卸载 abort；object URL 只 revoke 一次。
+- 图片导入：`loadImageFile` / `encodeImageRegion` 必须 settle；隐藏/卸载 abort；object URL 只 revoke 一次；PNG/WebP 走无损 PNG 保持透明通道，JPEG 保持原分辨率高画质，仅预算超限才降级；裁剪会话只允许一个，commit/cancel 必须收尾。
 - Host：哈希 URL immutable；legacy URL no-cache；ETag 为完整内容哈希。
 - 性能门禁：`npm test` 只读检查生成物，不重写 `client.js` / fallbacks。
 
@@ -31,6 +31,7 @@
 | 壁纸透明度 | `dsh-liquid-glass.background.opacity` | 只改 wallpaper `opacity` |
 | 玻璃模糊 | `dsh-liquid-glass.glass.blur`（新，默认 20，0–40） | 写 `--lg-glass-blur`，驱动 `--lg-blur-shell` / `--lg-blur-card` |
 | 液态玻璃开关 | `dsh-liquid-glass:effect` | 是否启用材质 |
+| 边缘折射 | `dsh-liquid-glass.lens.refract`（默认 on） | on 用位移贴图折射岛边缘；off 只剩磨砂 blur，不扭曲背后内容 |
 
 旧键 `dsh-liquid-glass.background.blur` **不再读取**，也不清空。其旧数值不会迁移成玻璃模糊。
 
@@ -65,6 +66,8 @@
 | 深色壁纸在浅色官方外观下仍选择高对比玻璃文字 | 自动测试 |
 | 固定边框/上下遮挡与材质使用相同的完整滚动视口边界 | 自动测试 |
 | 设置弹窗打开时释放 SidebarRoot isolation，隐藏侧栏装饰伪元素 | 自动测试 |
+| 导入图片先弹自由裁剪（拖动/缩放/比例预设），确认后按原分辨率高质量编码 | 自动测试 |
+| 边缘折射开关 off 时岛 `::before` 不再引用位移滤镜，壁纸/内容不被扭曲 | 自动测试 |
 | 不存在输入区白色遮罩，且不修改官方 sticky/scroll owner | 自动测试 |
 | 正文裁切随 scrollport / composer 实际矩形更新，切页后重新绑定 | 自动测试 |
 | 展开侧栏三个胶囊统一基线，折叠态恢复 36px 圆形 | 自动测试 |

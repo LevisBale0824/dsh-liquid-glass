@@ -37,6 +37,11 @@ body[data-dsh-liquid-glass] [data-slot='conversation.session.header'] > header::
   box-shadow: inset 0 1px 0 var(--lg-highlight), inset 0 0 0 1px var(--lg-border);
 }
 
+body[data-dsh-liquid-glass][data-dsh-liquid-glass-refract='off'] [data-slot='conversation.session.header'] > header::before {
+  -webkit-backdrop-filter: blur(var(--lg-blur-shell)) saturate(var(--lg-lens-saturate));
+  backdrop-filter: blur(var(--lg-blur-shell)) saturate(var(--lg-lens-saturate));
+}
+
 body[data-dsh-liquid-glass] [data-slot='conversation.session.header'] > header > * {
   position: relative;
   z-index: 1;

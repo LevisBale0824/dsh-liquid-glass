@@ -39,6 +39,12 @@ body[data-dsh-liquid-glass] [data-slot='sidebar'] > :first-child::before {
   box-shadow: inset 0 1px 0 var(--lg-highlight), inset 0 0 0 1px var(--lg-border);
 }
 
+/* Refraction off: plain frosted glass, no edge displacement/ripple. */
+body[data-dsh-liquid-glass][data-dsh-liquid-glass-refract='off'] [data-slot='sidebar'] > :first-child::before {
+  -webkit-backdrop-filter: blur(var(--lg-blur-shell)) saturate(var(--lg-lens-saturate));
+  backdrop-filter: blur(var(--lg-blur-shell)) saturate(var(--lg-lens-saturate));
+}
+
 body[data-dsh-liquid-glass] [data-sidebar-collapsed] [data-slot='sidebar'] > :first-child::before {
   top: var(--lg-title-top);
   right: 3px;

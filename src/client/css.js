@@ -10,5 +10,6 @@
       cssSidebarChrome,
       cssCards,
       cssSettingsPage,
+      cssCrop,
       cssA11y,
     ].join('\n')

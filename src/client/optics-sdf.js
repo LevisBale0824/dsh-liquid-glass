@@ -25,7 +25,7 @@
     }
 
     function islandDisplacementScale() {
-      return ISLAND_LENS.strength
+      return readLensRefract() ? ISLAND_LENS.strength : 0
     }
 
     function buildIslandFilterPrimitives(map, scale) {

@@ -31,6 +31,12 @@ body[data-dsh-liquid-glass] [data-slot='conversation'] > [data-phase='settling']
   border-radius: var(--lg-radius-shell);
 }
 
+body[data-dsh-liquid-glass][data-dsh-liquid-glass-refract='off'] [data-slot='conversation'] > [data-phase='active']::before,
+body[data-dsh-liquid-glass][data-dsh-liquid-glass-refract='off'] [data-slot='conversation'] > [data-phase='settling']::before {
+  -webkit-backdrop-filter: blur(var(--lg-blur-shell)) saturate(var(--lg-lens-saturate));
+  backdrop-filter: blur(var(--lg-blur-shell)) saturate(var(--lg-lens-saturate));
+}
+
 /* Blank New Session hides the header, so the pane island starts where the
    title island would — one full column of glass behind the hero stack. */
 body[data-dsh-liquid-glass] [data-slot='conversation'] > [data-phase='hero']::before {
@@ -50,6 +56,11 @@ body[data-dsh-liquid-glass] [data-slot='conversation'] > [data-phase='hero']::be
   -webkit-backdrop-filter: url(#lg-island-lens-pane) blur(var(--lg-blur-shell)) saturate(var(--lg-lens-saturate));
   backdrop-filter: url(#lg-island-lens-pane) blur(var(--lg-blur-shell)) saturate(var(--lg-lens-saturate));
   border-radius: var(--lg-radius-shell);
+}
+
+body[data-dsh-liquid-glass][data-dsh-liquid-glass-refract='off'] [data-slot='conversation'] > [data-phase='hero']::before {
+  -webkit-backdrop-filter: blur(var(--lg-blur-shell)) saturate(var(--lg-lens-saturate));
+  backdrop-filter: blur(var(--lg-blur-shell)) saturate(var(--lg-lens-saturate));
 }
 
 /* Fixed pane rim. Header/composer retain official z 6 / 7;

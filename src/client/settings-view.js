@@ -1,6 +1,7 @@
     // Layer: Settings row markup.
     function renderSettingsRow(el, state, actions) {
       var toggleGlass = actions.toggleGlass
+      var toggleRefract = actions.toggleRefract
       var chooseBackground = actions.chooseBackground
       var updateOpacity = actions.updateOpacity
       var updateGlassBlur = actions.updateGlassBlur
@@ -120,6 +121,25 @@
             onChange: function (event) { updateGlassBlur(Number(event.target.value)) },
           }),
           el('span', null, state.glassBlur + 'px'),
+        ),
+        el('div', { 'data-liquid-glass-head': '' },
+          el('div', { 'data-liquid-glass-heading': '' }, copy('refract')),
+          el('button', {
+            type: 'button',
+            'data-liquid-glass-refract': '',
+            'aria-pressed': state.refract,
+            onClick: toggleRefract,
+            style: {
+              minWidth: 64, height: 32, borderRadius: 999, flex: '0 0 auto',
+              border: '1px solid var(--dsw-alias-border-l2)',
+              background: state.refract ? 'var(--lg-toggle-on-fill)' : 'var(--dsw-alias-bg-layer-2)',
+              color: state.refract ? 'var(--lg-toggle-on-ink)' : 'inherit',
+              cursor: 'pointer',
+              font: 'inherit',
+              fontSize: 14,
+              lineHeight: '22px',
+            },
+          }, state.refract ? copy('glassOn') : copy('glassOff')),
         ),
         state.status === '' ? null : el('div', { role: 'status', style: { fontSize: 12 } }, state.status),
       )

@@ -55,7 +55,7 @@
         node.setAttribute('xlink:href', map)
       }
       function syncIslandLenses() {
-        if (glassOwners.size === 0) return
+        if (glassOwners.size === 0 || !readLensRefract()) return
         var shapes = measureIslandShapes()
         if (shapes === null) return
         keys.forEach(function (key) {

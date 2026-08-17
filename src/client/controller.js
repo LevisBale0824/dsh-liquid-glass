@@ -1,4 +1,26 @@
     // Layer: wallpaper DOM, style tag, SVG filters, theme token override.
+    var cropSession = null
+    var cropSessionListeners = new Set()
+
+    function openCropSession(session) {
+      cropSession = session
+      cropSessionListeners.forEach(function (fn) { fn(session) })
+    }
+
+    function closeCropSession() {
+      cropSession = null
+      cropSessionListeners.forEach(function (fn) { fn(null) })
+    }
+
+    function getCropSession() {
+      return cropSession
+    }
+
+    function subscribeCropSession(fn) {
+      cropSessionListeners.add(fn)
+      return function () { cropSessionListeners.delete(fn) }
+    }
+
     function createController() {
       var id = String(++nextControllerId)
       var wallpaperElement = null
@@ -96,6 +118,7 @@
             element.style.opacity = String(background.opacity)
           }
           document.body.style.setProperty('--lg-glass-blur', readGlassBlur() + 'px')
+          document.body.setAttribute(REFRACT_ATTRIBUTE, readLensRefract() ? 'on' : 'off')
           if (glassOn) {
             glassOwners.add(id)
             document.body.setAttribute(GLASS_ATTRIBUTE, surfaceScheme(theme, background))
@@ -121,6 +144,7 @@
         glassOwners.delete(id)
         if (glassOwners.size === 0) {
           document.body.removeAttribute(GLASS_ATTRIBUTE)
+          document.body.removeAttribute(REFRACT_ATTRIBUTE)
           document.body.style.removeProperty('--lg-glass-blur')
         }
         removeWallpaperElement()
@@ -142,5 +166,9 @@
         installStyles: installStyles,
         subscribeSettings: subscribeSettings,
         notifySettings: notifySettings,
+        openCropSession: openCropSession,
+        closeCropSession: closeCropSession,
+        getCropSession: getCropSession,
+        subscribeCropSession: subscribeCropSession,
       }
     }

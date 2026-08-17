@@ -2,6 +2,7 @@
     var name = 'dsh-liquid-glass'
     var inject = ['theme', 'slots']
     var GLASS_ATTRIBUTE = 'data-dsh-liquid-glass'
+    var REFRACT_ATTRIBUTE = 'data-dsh-liquid-glass-refract'
     var STYLE_ID = 'dsh-liquid-glass/liquid-glass.css'
     var WALLPAPER_ELEMENT_ATTRIBUTE = 'data-dsh-liquid-glass-wallpaper'
     var EFFECT_STORAGE = 'dsh-liquid-glass:effect'
@@ -18,8 +19,10 @@
     var DEEPWATER_WALLPAPER_URL = '/dsh-liquid-glass/assets/liquid-glass-deepwater.' + DEEPWATER_WALLPAPER_HASH + '.jpg'
     var BACKGROUND_OPACITY_STORAGE = 'dsh-liquid-glass.background.opacity'
     var GLASS_BLUR_STORAGE = 'dsh-liquid-glass.glass.blur'
+    var REFRACT_STORAGE = 'dsh-liquid-glass.lens.refract'
     var DEFAULT_WALLPAPER_OPACITY = 0.88
     var DEFAULT_GLASS_BLUR = 20
+    var DEFAULT_LENS_REFRACT = true
     // Sidebar / title A / conversation H share the samasante field.
     // Loupe defaults (depth 0.95 / curvature 0.5) fill a 300px circle; on a
     // large island that becomes a centre dome. These stay on the rim.

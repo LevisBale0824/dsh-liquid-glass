@@ -231,3 +231,14 @@
     function writeGlassBlur(value) {
       return storageSet(GLASS_BLUR_STORAGE, String(value))
     }
+
+    function readLensRefract() {
+      var stored = storageGet(REFRACT_STORAGE)
+      if (stored === 'on') return true
+      if (stored === 'off') return false
+      return DEFAULT_LENS_REFRACT
+    }
+
+    function writeLensRefract(on) {
+      return storageSet(REFRACT_STORAGE, on ? 'on' : 'off')
+    }
